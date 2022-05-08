@@ -15,6 +15,12 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <div id="app">
+                    <example-component></example-component>
+                    </div>
+                    @section('scripts')
+                    <script src="{{asset('/js/app.js')}}"></script>
+                    @endsection
                 </div>
             </div>
         </div>
