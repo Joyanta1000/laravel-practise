@@ -24,3 +24,5 @@ Route::resource('morph-one', MorphOneController::class);
 Route::resource('morph-one-many', MorphOneToManyController::class);
 
 Route::resource('morph-many-many', MorphManyToManyController::class);
+
+Route::get('/unique_id', ['as'=>'unique_id','uses'=>'App\Http\Controllers\Controller@index'])->name('unique_id');
