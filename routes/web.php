@@ -4,8 +4,44 @@ use App\Http\Controllers\MorphManyToManyController;
 use App\Http\Controllers\MorphOneController;
 use App\Http\Controllers\MorphOneToManyController;
 use App\Http\Controllers\practiseController;
+use App\Http\Controllers\SocialController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubscriptionController;
+use Laravel\Socialite\Facades\Socialite;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+ 
+// Route::get('/auth/redirect', function () {
+//     return Socialite::driver('github')->redirect();
+// });
+
+// // Route::get('/auth/callback', function () {
+// //     $user = Socialite::driver('github')->user();
+ 
+// //     // $user->token
+// // });
+
+// Route::get('/auth/callback', function () {
+//     $githubUser = Socialite::driver('github')->user();
+ 
+//     $user = User::updateOrCreate([
+//         'github_id' => $githubUser->id,
+//     ], [
+//         'name' => $githubUser->name,
+//         'email' => $githubUser->email,
+//         'github_token' => $githubUser->token,
+//         'github_refresh_token' => $githubUser->refreshToken,
+//     ]);
+ 
+//     Auth::login($user);
+ 
+//     return redirect('/dashboard');
+// });
+
+// Route::get('auth/facebook', [SocialController::class, 'facebookRedirect']);
+// Route::get('auth/facebook/callback', [SocialController::class, 'loginWithFacebook']);
+Route::get('login/{provider}', 'App\Http\Controllers\Auth\LoginController@redirectToProvider');
+Route::get('{provider}/callback', 'App\Http\Controllers\Auth\LoginController@handleProviderCallback');
 
 Route::get('/', function () {
     return view('welcome');
