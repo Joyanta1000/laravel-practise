@@ -62,3 +62,5 @@ Route::resource('morph-one-many', MorphOneToManyController::class);
 Route::resource('morph-many-many', MorphManyToManyController::class);
 
 Route::get('/unique_id', ['as'=>'unique_id','uses'=>'App\Http\Controllers\Controller@index'])->name('unique_id');
+
+Route::get('/products', ['as'=>'products','uses'=>'App\Http\Controllers\ProductController@index'])->name('products');
